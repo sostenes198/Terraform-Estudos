@@ -1,3 +1,4 @@
-credentials
+aws_credentials
+azure_credentials.json
 
 .terraform

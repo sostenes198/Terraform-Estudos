@@ -30,6 +30,14 @@ docker container run -it --rm --name terraform -v $(pwd):/mnt/curso-terraform --
 
 **Terraform CLI:** [https://developer.hashicorp.com/terraform/cli](https://developer.hashicorp.com/terraform/cli)
 
+**Configuration Language Local State:** [https://developer.hashicorp.com/terraform/language/state](https://developer.hashicorp.com/terraform/language/state)
+
+**Configuration Language Backend:** [https://developer.hashicorp.com/terraform/language/settings/backends/configuration](https://developer.hashicorp.com/terraform/language/settings/backends/configuration)
+
+**Configuration Language Variables:** [https://developer.hashicorp.com/terraform/language/values/variables](https://developer.hashicorp.com/terraform/language/values/variables)
+
+**Configuration Language Output:** [https://developer.hashicorp.com/terraform/cli/commands/output](https://developer.hashicorp.com/terraform/cli/commands/output)
+
 
 ## Estrutura de arquivos base do terraform
 ![estrutura-de-arquivos](./images/estrutura-de-arquivos.png)
@@ -60,5 +68,7 @@ docker container run -it --rm --name terraform -v $(pwd):/mnt/curso-terraform --
 `terraform show`: Exibi arquivo gerado pelo `terraform plan -out plan.out`
 
 `terrafor apply`: Aplica o plano configurado
+
+`terrafor apply plan.ouy`: Aplica o plano configurado utilizando arquivo binário
 
 `terrafor destory`: Cria e aplica plano para excluir terraform aplicado
