@@ -67,8 +67,8 @@ docker container run -it --rm --name terraform -v $(pwd):/mnt/curso-terraform --
 
 `terraform show`: Exibi arquivo gerado pelo `terraform plan -out plan.out`
 
-`terrafor apply`: Aplica o plano configurado
+`terraform apply`: Aplica o plano configurado
 
-`terrafor apply plan.ouy`: Aplica o plano configurado utilizando arquivo binário
+`terraform apply plan.out`: Aplica o plano configurado utilizando arquivo binário
 
 `terrafor destory`: Cria e aplica plano para excluir terraform aplicado
