@@ -12,7 +12,7 @@ terraform {
 provider "aws" {
   region                   = "eu-central-1"
   shared_credentials_files = ["${path.module}/../aws_credentials"]
-  profile = "estudosTerraform"
+  profile                  = "estudosTerraform"
   default_tags {
     tags = {
       owner     = "Sóstenes"
