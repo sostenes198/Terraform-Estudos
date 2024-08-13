@@ -1,4 +1,7 @@
 aws_credentials
 azure_credentials.json
+aws-backend.conf
+azure-backend.conf
+.terraform.lock.hcl
 
 .terraform
