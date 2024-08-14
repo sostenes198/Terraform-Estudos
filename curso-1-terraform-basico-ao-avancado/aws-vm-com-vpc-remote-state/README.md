@@ -1,0 +1,1 @@
+### Comando para acessar máquina via `ssh`: `ssh -i aws-key ubuntu@IP_MAQUINA`
