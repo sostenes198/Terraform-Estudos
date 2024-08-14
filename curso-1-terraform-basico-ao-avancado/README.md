@@ -72,3 +72,8 @@ docker container run -it --rm --name terraform -v $(pwd):/mnt/curso-terraform --
 `terraform apply plan.out`: Aplica o plano configurado utilizando arquivo binário
 
 `terrafor destory`: Cria e aplica plano para excluir terraform aplicado
+
+
+## Funções Terraform
+
+####  File: [https://developer.hashicorp.com/terraform/language/functions/file](https://developer.hashicorp.com/terraform/language/functions/file)
