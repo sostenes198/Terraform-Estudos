@@ -1,0 +1,12 @@
+{
+    "resourceGroupName": "estudos-curso-terraform",
+    "storageAccountName": "sosoestudosterraform",
+    "containerName": "ssstcontestudos",
+    "keys": {
+        "vnet": "azure-vnet/terraform.tfstate",
+        "vm": "azure-vm/terraform.tfstate",
+        "vmProvisioner": "azure-vm-provisioner/terraform.tfstate",
+        "vmCustomData": "azure-vm-custom-data/terraform.tfstate",
+        "vmRemoteModules": "azure-vm-remote-modules/terraform.tfstate"
+    }
+}

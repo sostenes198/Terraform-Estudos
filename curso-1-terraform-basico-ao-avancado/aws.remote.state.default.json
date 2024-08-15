@@ -1,0 +1,11 @@
+{
+    "bucket": "soso-rm-state-bucket",
+    "keys": {
+        "vpc": "aws-vpc/terraform.tfstate",
+        "vm": "aws-vm/terraform.tfstate",
+        "vmProvisioner": "aws-vm-provisioner/terraform.tfstate",
+        "vmUserData": "aws-vm-user-data/terraform.tfstate",
+        "awsVmLocalModules": "aws-vm-local-modules/terraform.tfstate"
+    },
+    "region": "eu-central-1"
+}
