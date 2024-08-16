@@ -1,0 +1,1 @@
+#### For Expressions: [https://developer.hashicorp.com/terraform/language/expressions/for](https://developer.hashicorp.com/terraform/language/expressions/for)

@@ -1,0 +1,1 @@
+#### Dynamic Blocks Expressions: [https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks](https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks)

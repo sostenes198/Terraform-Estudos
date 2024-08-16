@@ -1,0 +1,1 @@
+#### Splat Expressions: [https://developer.hashicorp.com/terraform/language/expressions/splat](https://developer.hashicorp.com/terraform/language/expressions/splat)

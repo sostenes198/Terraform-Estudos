@@ -24,6 +24,8 @@ docker container run -it --rm --name terraform -v $(pwd):/mnt/curso-terraform --
 ###
 **Terraform:** [https://developer.hashicorp.com/terraform/language](https://developer.hashicorp.com/terraform/language)
 
+**Terraform console:** [https://developer.hashicorp.com/terraform/cli/commands/console](https://developer.hashicorp.com/terraform/cli/commands/console)
+
 **Providers:** [https://registry.terraform.io/browse/providers](https://registry.terraform.io/browse/providers)
 
 **Módulos:** [https://registry.terraform.io/browse/modules](https://registry.terraform.io/browse/modules)
@@ -48,11 +50,18 @@ docker container run -it --rm --name terraform -v $(pwd):/mnt/curso-terraform --
 ## Tipos de blocos do terraform
 ![tipos-blocos-terraform](./images/tipos-blocos-terraform.png)
 
+## Tipos de meta arguments
+![tipos-meta-arguments](./images/tipos-meta-arguments.png)
+
 ## Comandos Terraform
+
+`terraform console`: Prove um console interativodo terraform para avaliar expressões e afins
 
 `terraform providers`:  Lista provedores configurados
 
 `terraform init`: Inicia modulos dos terraform
+
+`terraform init -upgrade`: Instale as versões mais recentes do módulo e do provedor permitidas dentro das restrições configuradas, substituindo o comportamento padrão de selecionar exatamente a versão registrada no arquivo de bloqueio de dependência.
 
 `terraform init -reconfigure`: Cria uma nova configuração a partir das novas definições do `backend` alterado, gerando um novo `terraform-state`
 
@@ -78,6 +87,11 @@ docker container run -it --rm --name terraform -v $(pwd):/mnt/curso-terraform --
 
 `terraform plan -out plan.out -destroy`: Exibi todas alterações que serão realizadas pelo terraform e cria arquivo de execução para destruição do plano
 
+`terraform plan -target={RESOURCE}`: Limitar a operação de planeamento apenas ao módulo indicado, recurso ou instância de recurso e todas as suas dependências. É possível utilizar esta opção várias vezes para incluir mais de um objeto. Esta opção é para uso uso excecional.
+
+`terraform plan -replace={RESOURCE}`: Força a substituição de uma determinada instância de recurso utilizando seu endereço de recurso. Se o plano teria normalmente
+produzido uma ação de atualização ou no-op para esta instância, Terraform planeará substituí-la em vez disso. É possível usar esta opção várias vezes para substituir mais de um objeto.
+
 `terraform show`: Exibi o terraform.tfstate
 
 `terraform show -out plan.out`: Exibi arquivo gerado pelo `terraform plan -out plan.out`
@@ -87,6 +101,11 @@ docker container run -it --rm --name terraform -v $(pwd):/mnt/curso-terraform --
 `terraform apply -auto-approve`: Aplica o plano configurado sem solicitar confirmaçao manual
 
 `terraform apply plan.out`: Aplica o plano configurado utilizando arquivo binário
+
+`terraform apply -target={RESOURCE}`: Limitar a operação de planeamento apenas ao módulo indicado, recurso ou instância de recurso e todas as suas dependências. É possível utilizar esta opção várias vezes para incluir mais de um objeto. Esta opção é para uso uso excecional.
+
+`terraform apply -replace={RESOURCE}`: Força a substituição de uma determinada instância de recurso utilizando seu endereço de recurso. Se o plano teria normalmente
+produzido uma ação de atualização ou no-op para esta instância, Terraform planeará substituí-la em vez disso. É possível usar esta opção várias vezes para substituir mais de um objeto.
 
 `terrafor destory`: Cria e aplica plano para excluir terraform aplicado
 
@@ -119,6 +138,8 @@ docker container run -it --rm --name terraform -v $(pwd):/mnt/curso-terraform --
 `terraform force-unlock`: Força o `unlock` do `terraform-state`
 
 `terraform get`: Realiza donwload de módulos remotos sem precisar fazer o `terraform init` ou em casos no qual o terraform já foi inicializado e é necessário atualizar algum módulo
+
+`terraform workspace`: Lista comandos do do `workspace`
 
 
 ## Funções Terraform

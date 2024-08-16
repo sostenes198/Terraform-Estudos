@@ -1,0 +1,1 @@
+### Lifecycle: [https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)

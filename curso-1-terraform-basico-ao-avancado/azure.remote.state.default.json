@@ -7,6 +7,7 @@
         "vm": "azure-vm/terraform.tfstate",
         "vmProvisioner": "azure-vm-provisioner/terraform.tfstate",
         "vmCustomData": "azure-vm-custom-data/terraform.tfstate",
-        "vmRemoteModules": "azure-vm-remote-modules/terraform.tfstate"
+        "vmRemoteModules": "azure-vm-remote-modules/terraform.tfstate",
+        "projetoFinalVmAwsAzure": "projeto-final-vm-aws-zure/terraform.tfstate"
     }
 }
