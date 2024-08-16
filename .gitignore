@@ -5,3 +5,4 @@ azure-backend.conf
 .terraform.lock.hcl
 
 .terraform
+terraform.tfstate.d
