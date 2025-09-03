@@ -1,3 +1,4 @@
+elastic_credentials
 aws_credentials
 azure_credentials.json
 aws-backend.conf
@@ -6,3 +7,5 @@ azure-backend.conf
 
 .terraform
 terraform.tfstate.d
+
+.temp

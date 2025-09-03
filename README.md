@@ -45,17 +45,17 @@ docker container run -it --rm --name terraform -v $(pwd):/mnt/curso-terraform --
 **Terraform Provisioner**: [https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax)
 
 ## Estrutura de arquivos base do terraform
-![estrutura-de-arquivos](./images/estrutura-de-arquivos.png)
+![estrutura-de-arquivos](./_images/estrutura-de-arquivos.png)
 
 ## Tipos de blocos do terraform
-![tipos-blocos-terraform](./images/tipos-blocos-terraform.png)
+![tipos-blocos-terraform](./_images/tipos-blocos-terraform.png)
 
 ## Tipos de meta arguments
-![tipos-meta-arguments](./images/tipos-meta-arguments.png)
+![tipos-meta-arguments](./_images/tipos-meta-arguments.png)
 
 ## Comandos Terraform
 
-`terraform console`: Prove um console interativodo terraform para avaliar expressões e afins
+`terraform console`: Prove um console interativo do terraform para avaliar expressões e afins
 
 `terraform providers`:  Lista provedores configurados
 
@@ -107,7 +107,7 @@ produzido uma ação de atualização ou no-op para esta instância, Terraform p
 `terraform apply -replace={RESOURCE}`: Força a substituição de uma determinada instância de recurso utilizando seu endereço de recurso. Se o plano teria normalmente
 produzido uma ação de atualização ou no-op para esta instância, Terraform planeará substituí-la em vez disso. É possível usar esta opção várias vezes para substituir mais de um objeto.
 
-`terrafor destory`: Cria e aplica plano para excluir terraform aplicado
+`terrafor destroy`: Cria e aplica plano para excluir terraform aplicado
 
 `terraform state`: Lista os recursos do comando `state`
 
@@ -145,3 +145,15 @@ produzido uma ação de atualização ou no-op para esta instância, Terraform p
 ## Funções Terraform
 
 ####  File: [https://developer.hashicorp.com/terraform/language/functions/file](https://developer.hashicorp.com/terraform/language/functions/file)
+
+## Dicas
+
+### Dica rápida para conferir o “shape” de um estado:
+
+> `terraform state show {{MODULE}}`
+
+**OU de forma interativa**
+```bash
+terraform console
+ec_deployment.ess
+```
