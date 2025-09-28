@@ -157,3 +157,151 @@ produzido uma ação de atualização ou no-op para esta instância, Terraform p
 terraform console
 ec_deployment.ess
 ```
+
+# AWS CLI COMANDOS
+
+## 🧹 Remover as configurações atuais
+
+O aws configure list mostra de onde vêm as credenciais (env vars, arquivo ~/.aws/credentials, etc.).
+
+Para remover as configs atuais:
+
+1. Remover do ambiente (variáveis de sessão):
+    ```bash
+    unset AWS_ACCESS_KEY_ID
+    unset AWS_SECRET_ACCESS_KEY
+    unset AWS_SESSION_TOKEN
+    unset AWS_PROFILE
+    ```
+
+   No PowerShell (Windows):
+
+    ```powershell
+    Remove-Item Env:AWS_ACCESS_KEY_ID
+    Remove-Item Env:AWS_SECRET_ACCESS_KEY
+    Remove-Item Env:AWS_SESSION_TOKEN
+    Remove-Item Env:AWS_PROFILE
+    ```
+
+
+2. Remover dos arquivos de configuração:
+   * Credenciais ficam em ~/.aws/credentials
+   * Configurações de perfil ficam em ~/.aws/config
+    <br><br>
+   Você pode apagar manualmente:
+
+    ```bash
+    rm -f ~/.aws/credentials
+    rm -f ~/.aws/config
+    ```
+
+
+⚠️ **Cuidado: Isso apaga todos os perfis.
+Se quiser apagar só um perfil, edite o arquivo e remova a seção [profile-nome].**
+
+## 🔑 Fazer login na AWS CLI
+
+Existem 3 jeitos comuns:
+
+1. Chaves estáticas (IAM User) <br>
+    O jeito mais simples, mas menos seguro (ideal apenas para testes).
+    Rode:
+    ```bash
+    aws configure
+    ```
+   
+   Ele vai perguntar:
+   ```bash
+   AWS Access Key ID [None]: AKIAEXEMPLO123
+   AWS Secret Access Key [None]: abc123...
+   Default region name [None]: sa-east-1
+   Default output format [None]: json
+   ```
+   
+   Isso cria ~/.aws/credentials com as chaves e a região.
+
+    ```bash
+    AWS Access Key ID [None]: AKIAEXEMPLO123
+    AWS Secret Access Key [None]: abc123...
+    Default region name [None]: sa-east-1
+    Default output format [None]: json
+    ```
+
+2. Perfil nomeado
+
+    Melhor para vários ambientes (dev, prod):
+
+    aws configure --profile meu-perfil
+
+    Depois use:
+
+    `export AWS_PROFILE=meu-perfil`   # Linux/Mac
+    
+    `setx AWS_PROFILE meu-perfil`    # Windows (persistente)
+
+    E rode normalmente aws ... que ele usará esse perfil.
+
+## 🧪 Teste final
+
+Depois de configurar, rode:
+
+```bash
+aws sts get-caller-identity
+```
+
+Você deve ver um JSON com Account e Arn confirmando que está autenticado.
+
+## 🔧 1. Definir no ~/.bashrc ou ~/.bash_profile
+O Git Bash carrega um arquivo de inicialização sempre que você abre.<br>
+Você pode adicionar a variável lá:
+
+```bash
+echo 'export AWS_PROFILE=meu-perfil' >> ~/.bashrc
+```
+
+E para garantir que é carregado:
+```bash
+source ~/.bashrc
+```
+
+## 🧠 Diferença entre .bashrc e .bash_profile
+
+.bashrc → carregado em cada shell interativo (ideal para variáveis de ambiente).
+
+.bash_profile → carregado só no login.
+
+No Git Bash, normalmente .bashrc já é chamado, então é o lugar certo.
+
+### 🔎 Para conferir
+
+Feche e reabra o Git Bash e rode:
+
+```bash
+echo $AWS_PROFILE
+```
+
+
+Saída esperada:
+
+```bash
+meu-perfil
+```
+
+E para validar de verdade:
+
+```bash
+aws sts get-caller-identity
+```
+
+Vai mostrar a conta/ARN do perfil que você definiu.
+
+### ⚠️ Observação
+
+**Se você usa vários perfis (ex.: dev, prod), pode colocar um alias no ~/.bashrc para trocar fácil:**
+
+```bash
+alias use-dev='export AWS_PROFILE=dev'
+alias use-prod='export AWS_PROFILE=prod'
+```
+
+Aí você só digita use-dev ou use-prod no terminal para trocar.
